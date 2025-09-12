@@ -13,5 +13,5 @@ const data: ApiResponse<AccountResponse> = {
 };
 
 export const accountHandlers = [
-  http.get("/users/me", () => HttpResponse.json(data)),
+  http.get("/user/me", () => HttpResponse.json(data)),
 ];
