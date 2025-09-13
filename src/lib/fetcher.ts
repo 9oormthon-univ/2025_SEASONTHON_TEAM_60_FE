@@ -45,9 +45,13 @@ export async function apiFetch<TRes, TReq = unknown>(
   const url = buildURL(path, params);
   const h = new Headers(headers);
 
-  //localStorage에서 토큰 읽어서 Authorization 헤더 추가
+  // cookie에서 토큰 읽어서 Authorization 헤더 추가
   if (typeof window !== "undefined") {
-    const token = localStorage.getItem("token");
+    const token = document.cookie
+      .split("; ")
+      .find((row) => row.startsWith("token="))
+      ?.split("=")[1];
+
     if (token) {
       h.set("Authorization", `Bearer ${token}`);
     }
