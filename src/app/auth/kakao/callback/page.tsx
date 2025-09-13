@@ -13,7 +13,7 @@ function KakaoCallbackContent() {
     const token = params.get("token");
 
     if (token) {
-      localStorage.setItem("token", token);
+      document.cookie = `token=${token}; path=/; max-age=${7 * 24 * 60 * 60}; secure; samesite=strict`;
       router.replace("/dashboard");
     } else {
       router.replace("/");
