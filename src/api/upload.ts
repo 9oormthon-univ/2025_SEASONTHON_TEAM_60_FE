@@ -1,5 +1,4 @@
 import { api } from "@/lib/fetcher";
-import { Status } from "@/lib/types";
 
 export const postUpload = (file: File) => {
   const formData = new FormData();
