@@ -2,13 +2,10 @@ import Button from "@/components/common/Button";
 import Section from "@/components/common/Section";
 
 export default function ConnectChannel() {
-  const GOOGLE_OAUTH_URL = process.env.NEXT_PUBLIC_API_BASE_URL
-    ? `${process.env.NEXT_PUBLIC_API_BASE_URL}/oauth2/authorization/google`
+  const GOOGLE_OAUTH_URL = process.env.NEXT_PUBLIC_API_URL
+    ? `${process.env.NEXT_PUBLIC_API_URL}/oauth2/authorization/google`
     : "/oauth2/authorization/google";
 
-  const handleConnect = () => {
-    window.location.href = GOOGLE_OAUTH_URL;
-  };
   return (
     <Section className="flex-col">
       <p className="headline-small text-text-primary">
